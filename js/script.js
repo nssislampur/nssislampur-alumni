@@ -1,14 +1,8 @@
-// ============================================
-// NSS Alumni Website - Main JavaScript
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize tooltips or other global functionality
     initializeApp();
 });
 
 function initializeApp() {
-    // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -21,8 +15,6 @@ function initializeApp() {
             }
         });
     });
-
-    // Active navigation link highlighting
     highlightActiveNavLink();
 }
 
@@ -32,8 +24,7 @@ function highlightActiveNavLink() {
     
     menuItems.forEach(link => {
         const href = link.getAttribute('href');
-        if (currentLocation.includes(href) || 
-            (currentLocation === '/' && href === 'index.html')) {
+        if (currentLocation.includes(href) || (currentLocation === '/' && href === 'index.html')) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -41,18 +32,6 @@ function highlightActiveNavLink() {
     });
 }
 
-// Utility function to format phone numbers
-function formatPhoneNumber(phone) {
-    return phone.replace(/(\d{2})(\d{5})(\d{5})/, '$1 $2 $3');
-}
-
-// Utility function to validate email
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Utility function to load JSON data
 async function loadJSONFile(path) {
     try {
         const response = await fetch(path);
@@ -66,28 +45,4 @@ async function loadJSONFile(path) {
     }
 }
 
-// Add animation to elements when they come into view
-function observeElements() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target);
-            }
-        });
-    });
-
-    document.querySelectorAll('.feature-card, .stat-card, .alumni-card').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// Initialize element observation when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', observeElements);
-} else {
-    observeElements();
-}
-
-// Log initialization
-console.log('NSS Alumni Website initialized successfully');
+console.log('NSS Alumni Website initialized');

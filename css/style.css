@@ -8,7 +8,6 @@
     box-sizing: border-box;
 }
 
-/* Colors and Variables */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
@@ -35,10 +34,6 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* ============================================
-   Navigation Bar
-   ============================================ */
 
 .navbar {
     background-color: var(--primary-color);
@@ -81,11 +76,10 @@ body {
     color: var(--secondary-color);
 }
 
-/* ============================================
-   Hero Section with Background Image
-   ============================================ */
-
 .hero {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: white;
     padding: 120px 20px;
     text-align: center;
@@ -139,10 +133,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* ============================================
-   Buttons
-   ============================================ */
-
 .btn {
     padding: 14px 35px;
     border: none;
@@ -178,10 +168,6 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* ============================================
-   Page Header
-   ============================================ */
-
 .page-header {
     background-color: var(--primary-color);
     color: white;
@@ -199,10 +185,6 @@ body {
     font-size: 1.1rem;
     opacity: 0.9;
 }
-
-/* ============================================
-   Stats Section
-   ============================================ */
 
 .stats {
     display: grid;
@@ -238,10 +220,6 @@ body {
     color: var(--secondary-color);
 }
 
-/* ============================================
-   About Section
-   ============================================ */
-
 .about {
     background: white;
     padding: 40px;
@@ -261,10 +239,6 @@ body {
     line-height: 1.8;
     font-size: 1.1rem;
 }
-
-/* ============================================
-   Features Section
-   ============================================ */
 
 .features {
     margin: 60px 0;
@@ -311,10 +285,6 @@ body {
     color: var(--text-light);
 }
 
-/* ============================================
-   CTA Section
-   ============================================ */
-
 .cta {
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
     color: white;
@@ -333,10 +303,6 @@ body {
     font-size: 1.1rem;
     margin-bottom: 2rem;
 }
-
-/* ============================================
-   Alumni Directory
-   ============================================ */
 
 .directory-controls {
     display: flex;
@@ -427,10 +393,6 @@ body {
     font-size: 0.85rem;
     color: var(--text-light);
 }
-
-/* ============================================
-   Gallery
-   ============================================ */
 
 .gallery-filters {
     display: flex;
@@ -527,10 +489,6 @@ body {
     opacity: 0.7;
 }
 
-/* ============================================
-   Upload Section
-   ============================================ */
-
 .upload-section {
     background: white;
     padding: 3rem;
@@ -587,10 +545,6 @@ body {
     border: 1px solid #f5c6cb;
 }
 
-/* ============================================
-   Gallery Info
-   ============================================ */
-
 .gallery-info {
     background: white;
     padding: 2rem;
@@ -613,10 +567,6 @@ body {
     margin-bottom: 1rem;
     line-height: 1.6;
 }
-
-/* ============================================
-   Image Modal
-   ============================================ */
 
 .image-modal {
     position: fixed;
@@ -658,10 +608,6 @@ body {
 .close-modal:hover {
     color: var(--secondary-color);
 }
-
-/* ============================================
-   Contacts Section
-   ============================================ */
 
 .contacts-section {
     margin: 3rem 0;
@@ -720,10 +666,6 @@ body {
     margin-top: 0.5rem;
 }
 
-/* ============================================
-   Tips Section
-   ============================================ */
-
 .info-section {
     background: white;
     padding: 2rem;
@@ -753,10 +695,6 @@ body {
     color: var(--primary-color);
 }
 
-/* ============================================
-   No Results
-   ============================================ */
-
 .no-results {
     background: white;
     padding: 4rem;
@@ -766,10 +704,6 @@ body {
     color: var(--text-light);
     font-size: 1.2rem;
 }
-
-/* ============================================
-   Footer
-   ============================================ */
 
 .footer {
     background-color: var(--primary-color);
@@ -802,54 +736,34 @@ body {
     color: var(--secondary-color);
 }
 
-/* ============================================
-   Responsive Design
-   ============================================ */
-
 @media (max-width: 768px) {
     .nav-links {
         gap: 1rem;
     }
-
     .hero-content h1 {
         font-size: 2rem;
     }
-
     .tagline {
         font-size: 1.2rem;
     }
-
-    .subtitle {
-        font-size: 0.95rem;
-    }
-
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-
     .btn {
         width: 100%;
         max-width: 300px;
     }
-
     .directory-controls {
         flex-direction: column;
     }
-
-    .filter-options {
-        flex-direction: column;
-    }
-
     .footer .container {
         flex-direction: column;
         text-align: center;
     }
-
     .stats {
         grid-template-columns: repeat(2, 1fr);
     }
-
     .feature-grid,
     .contacts-grid {
         grid-template-columns: 1fr;
@@ -860,50 +774,30 @@ body {
     .logo {
         font-size: 1.2rem;
     }
-
     .nav-links {
         gap: 0.5rem;
     }
-
     .nav-links a {
         padding: 0.5rem 0.75rem;
         font-size: 0.85rem;
     }
-
     .hero {
         padding: 80px 20px;
         min-height: 400px;
     }
-
     .hero-content h1 {
         font-size: 1.5rem;
     }
-
-    .tagline {
-        font-size: 1rem;
-    }
-
-    .subtitle {
-        font-size: 0.85rem;
-    }
-
     .page-header h1 {
         font-size: 1.8rem;
     }
-
     .stats {
         grid-template-columns: 1fr;
     }
-
     .about,
     .cta,
     .upload-section,
     .info-section {
         padding: 1.5rem;
-    }
-
-    .close-modal {
-        top: -30px;
-        font-size: 30px;
     }
 }

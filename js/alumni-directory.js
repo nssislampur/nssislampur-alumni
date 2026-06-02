@@ -1,7 +1,3 @@
-// ============================================
-// Alumni Directory - JavaScript
-// ============================================
-
 let allAlumni = [];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -23,16 +19,18 @@ function displayAlumni(alumni) {
     const grid = document.getElementById('alumni-grid');
     const noResults = document.getElementById('no-results');
     
+    if (!grid) return;
+    
     grid.innerHTML = '';
     
     if (alumni.length === 0) {
         grid.style.display = 'none';
-        noResults.style.display = 'block';
+        if (noResults) noResults.style.display = 'block';
         return;
     }
     
     grid.style.display = 'grid';
-    noResults.style.display = 'none';
+    if (noResults) noResults.style.display = 'none';
     
     alumni.forEach(person => {
         const card = createAlumniCard(person);
@@ -77,8 +75,13 @@ function setupEventListeners() {
 }
 
 function filterAlumni() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const professionFilter = document.getElementById('filter-profession').value;
+    const searchInput = document.getElementById('search-input');
+    const filterSelect = document.getElementById('filter-profession');
+    
+    if (!searchInput || !filterSelect) return;
+    
+    const searchTerm = searchInput.value.toLowerCase();
+    const professionFilter = filterSelect.value;
     
     const filtered = allAlumni.filter(person => {
         const matchesSearch = person.name.toLowerCase().includes(searchTerm) ||

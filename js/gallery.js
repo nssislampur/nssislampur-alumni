@@ -1,9 +1,3 @@
-// ============================================
-// Photo Gallery - JavaScript
-// ============================================
-
-let galleryPhotos = [];
-
 document.addEventListener('DOMContentLoaded', function() {
     setupGalleryFilters();
     setupPhotoUpload();
@@ -15,9 +9,7 @@ function setupGalleryFilters() {
     
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
             this.classList.add('active');
             
             const filter = this.getAttribute('data-filter');
@@ -28,20 +20,13 @@ function setupGalleryFilters() {
 
 function filterGallery(filter) {
     const galleryItems = document.querySelectorAll('.gallery-item');
-    let visibleCount = 0;
     
     galleryItems.forEach(item => {
         if (filter === 'all') {
             item.style.display = 'block';
-            visibleCount++;
         } else {
             const itemCategory = item.getAttribute('data-category');
-            if (itemCategory === filter) {
-                item.style.display = 'block';
-                visibleCount++;
-            } else {
-                item.style.display = 'none';
-            }
+            item.style.display = (itemCategory === filter) ? 'block' : 'none';
         }
     });
 }
@@ -51,6 +36,8 @@ function setupImageModals() {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-image');
     const closeModal = document.querySelector('.close-modal');
+    
+    if (!modal || !modalImg) return;
     
     galleryItems.forEach(item => {
         const img = item.querySelector('img');
@@ -70,102 +57,58 @@ function setupImageModals() {
         });
     }
     
-    if (modal) {
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
 }
 
 function setupPhotoUpload() {
     const uploadInput = document.getElementById('photo-upload');
     const uploadLabel = document.querySelector('.upload-label');
-    const uploadMessage = document.getElementById('upload-message');
     
-    if (uploadInput) {
-        // Click to upload
-        uploadLabel.addEventListener('click', function() {
-            uploadInput.click();
-        });
-        
-        // Handle file selection
-        uploadInput.addEventListener('change', function(e) {
-            const files = Array.from(e.target.files);
-            handlePhotoUpload(files, uploadMessage);
-        });
-        
-        // Drag and drop
-        uploadLabel.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            uploadLabel.style.backgroundColor = '#f0f7ff';
-            uploadLabel.style.borderColor = '#3498db';
-        });
-        
-        uploadLabel.addEventListener('dragleave', function(e) {
-            e.preventDefault();
-            uploadLabel.style.backgroundColor = '';
-            uploadLabel.style.borderColor = '';
-        });
-        
-        uploadLabel.addEventListener('drop', function(e) {
-            e.preventDefault();
-            uploadLabel.style.backgroundColor = '';
-            uploadLabel.style.borderColor = '';
-            
-            const files = Array.from(e.dataTransfer.files);
-            handlePhotoUpload(files, uploadMessage);
-        });
-    }
+    if (!uploadInput || !uploadLabel) return;
+    
+    uploadLabel.addEventListener('click', function() {
+        uploadInput.click();
+    });
+    
+    uploadInput.addEventListener('change', function(e) {
+        const files = Array.from(e.target.files);
+        handlePhotoUpload(files);
+    });
 }
 
-function handlePhotoUpload(files, messageElement) {
+function handlePhotoUpload(files) {
     const validFiles = files.filter(file => {
         const isImage = file.type.startsWith('image/');
         const isUnder5MB = file.size <= 5 * 1024 * 1024;
         return isImage && isUnder5MB;
     });
     
-    const invalidFiles = files.filter(file => {
-        const isImage = file.type.startsWith('image/');
-        const isUnder5MB = file.size <= 5 * 1024 * 1024;
-        return !isImage || !isUnder5MB;
-    });
-    
-    if (invalidFiles.length > 0) {
-        showMessage(messageElement, 
-            `⚠️ ${invalidFiles.length} file(s) were invalid (only images under 5MB allowed)`, 
-            'error');
-    }
-    
     if (validFiles.length === 0) {
+        alert('Please select valid image files (under 5MB)');
         return;
     }
     
     validFiles.forEach(file => {
         const reader = new FileReader();
-        
         reader.onload = function(e) {
             addPhotoToGallery(e.target.result, file.name);
         };
-        
         reader.readAsDataURL(file);
     });
     
-    showMessage(messageElement, 
-        `✅ Successfully uploaded ${validFiles.length} photo(s)! They appear at the top of the gallery.`, 
-        'success');
-    
-    // Clear input
+    alert(`Successfully uploaded ${validFiles.length} photo(s)!`);
     document.getElementById('photo-upload').value = '';
 }
 
 function addPhotoToGallery(imageData, fileName) {
     const galleryGrid = document.getElementById('gallery-grid');
+    if (!galleryGrid) return;
     
-    // Create a new gallery item
     const newItem = document.createElement('div');
     newItem.className = 'gallery-item';
     newItem.setAttribute('data-category', 'uploads');
@@ -186,32 +129,6 @@ function addPhotoToGallery(imageData, fileName) {
     wrapper.appendChild(overlay);
     newItem.appendChild(wrapper);
     galleryGrid.insertBefore(newItem, galleryGrid.firstChild);
-    
-    // Add modal functionality to new image
-    const modal = document.getElementById('image-modal');
-    const modalImg = document.getElementById('modal-image');
-    const closeModal = document.querySelector('.close-modal');
-    
-    newItem.addEventListener('click', function() {
-        modal.style.display = 'flex';
-        modalImg.src = imageData;
-        document.body.style.overflow = 'hidden';
-    });
-}
-
-function showMessage(element, text, type) {
-    if (!element) return;
-    
-    element.textContent = text;
-    element.className = `upload-message ${type}`;
-    element.style.display = 'block';
-    
-    // Auto-hide success message after 5 seconds
-    if (type === 'success') {
-        setTimeout(() => {
-            element.style.display = 'none';
-        }, 5000);
-    }
 }
 
 console.log('Gallery loaded');
