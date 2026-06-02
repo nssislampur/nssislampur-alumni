@@ -38,6 +38,11 @@
 
         <!-- Gallery Grid -->
         <section class="gallery-grid" id="gallery-grid">
+            <!-- School Building Photo -->
+            <div class="gallery-item" data-category="class-photos">
+                <img src="images/gallery/netaji-subhash-school.jpg" alt="Netaji Subhash High School" onclick="openModal(this)">
+                <p class="image-caption">Netaji Shri Subhash High School, Islampur</p>
+            </div>
             <!-- Sample Gallery Images -->
             <div class="gallery-item" data-category="class-photos">
                 <div class="gallery-placeholder">
@@ -120,5 +125,17 @@
 
     <script src="js/script.js"></script>
     <script src="js/gallery.js"></script>
+    <script>
+        function openModal(img) {
+            var modal = document.getElementById("image-modal");
+            var modalImg = document.getElementById("modal-image");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+
+        document.querySelector(".close-modal").onclick = function() {
+            document.getElementById("image-modal").style.display = "none";
+        }
+    </script>
 </body>
 </html>
