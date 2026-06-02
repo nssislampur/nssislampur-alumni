@@ -46,7 +46,7 @@ function createAlumniCard(person) {
         <div class="alumni-image">${person.avatar}</div>
         <div class="alumni-info">
             <div class="alumni-name">${person.name}</div>
-            <div class="alumni-profession">${person.profession}</div>
+            <div class="alumni-profession">${person.position}</div>
             <div class="alumni-contact">
                 <p><strong>📍</strong> ${person.location}</p>
                 <p><strong>📧</strong> ${person.email}</p>
