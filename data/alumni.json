@@ -1,0 +1,64 @@
+{
+  "alumni": [
+    {
+      "id": 1,
+      "name": "Rajesh Kumar",
+      "profession": "Engineer",
+      "location": "Bangalore",
+      "email": "rajesh@example.com",
+      "phone": "+91 98765 43210",
+      "avatar": "👨",
+      "bio": "Software Engineer at Tech Company"
+    },
+    {
+      "id": 2,
+      "name": "Priya Sharma",
+      "profession": "Doctor",
+      "location": "Delhi",
+      "email": "priya@example.com",
+      "phone": "+91 97654 32109",
+      "avatar": "👩",
+      "bio": "Medical Doctor at City Hospital"
+    },
+    {
+      "id": 3,
+      "name": "Amit Singh",
+      "profession": "Business",
+      "location": "Mumbai",
+      "email": "amit@example.com",
+      "phone": "+91 96543 21098",
+      "avatar": "👨",
+      "bio": "Entrepreneur, Owner of Tech Startup"
+    },
+    {
+      "id": 4,
+      "name": "Anjali Patel",
+      "profession": "Teacher",
+      "location": "Pune",
+      "email": "anjali@example.com",
+      "phone": "+91 95432 10987",
+      "avatar": "👩",
+      "bio": "School Teacher in Pune"
+    },
+    {
+      "id": 5,
+      "name": "Vikram Desai",
+      "profession": "Engineer",
+      "location": "Hyderabad",
+      "email": "vikram@example.com",
+      "phone": "+91 94321 09876",
+      "avatar": "👨",
+      "bio": "Data Engineer at Big Tech"
+    },
+    {
+      "id": 6,
+      "name": "Neha Gupta",
+      "profession": "Other",
+      "location": "Kolkata",
+      "email": "neha@example.com",
+      "phone": "+91 93210 98765",
+      "avatar": "👩",
+      "bio": "Content Writer and Blogger"
+    }
+  ]
+}

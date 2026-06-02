@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Directory - NSS Alumni 1997</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">NSS Alumni 1997</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="alumni-directory.html" class="active">Alumni Directory</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="emergency-contacts.html">Emergency Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Alumni Directory</h1>
+        <p>Find and connect with your classmates</p>
+    </header>
+
+    <main class="container">
+        <!-- Search and Filter -->
+        <section class="directory-controls">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search by name..." class="search-input">
+            </div>
+            <div class="filter-options">
+                <select id="filter-profession" class="filter-select">
+                    <option value="">All Professions</option>
+                    <option value="Engineer">Engineer</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Business">Business</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Alumni Grid -->
+        <section class="alumni-grid" id="alumni-grid">
+            <!-- Alumni cards will be loaded here from JSON -->
+        </section>
+
+        <!-- No Results Message -->
+        <section id="no-results" class="no-results" style="display: none;">
+            <p>No alumni found matching your criteria.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 NSS High School Alumni 1997 Batch. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Report an Issue</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/alumni-directory.js"></script>
+</body>
+</html>

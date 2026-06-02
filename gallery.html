@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - NSS Alumni 1997</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">NSS Alumni 1997</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="alumni-directory.html">Alumni Directory</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="emergency-contacts.html">Emergency Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Photo Gallery</h1>
+        <p>Cherish memories from our batch and school days</p>
+    </header>
+
+    <main class="container">
+        <!-- Category Filter -->
+        <section class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="class-photos">Class Photos</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+            <button class="filter-btn" data-filter="reunions">Reunions</button>
+            <button class="filter-btn" data-filter="sports">Sports</button>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-grid" id="gallery-grid">
+            <!-- Sample Gallery Images -->
+            <div class="gallery-item" data-category="class-photos">
+                <div class="gallery-placeholder">
+                    <p>📷 Class Photo 1</p>
+                    <p class="small">Upload alumni photo</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="class-photos">
+                <div class="gallery-placeholder">
+                    <p>📷 Class Photo 2</p>
+                    <p class="small">Upload alumni photo</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="events">
+                <div class="gallery-placeholder">
+                    <p>🎉 School Event</p>
+                    <p class="small">Add your image here</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="sports">
+                <div class="gallery-placeholder">
+                    <p>⚽ Sports Day</p>
+                    <p class="small">Add your image here</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="reunions">
+                <div class="gallery-placeholder">
+                    <p>🎊 Alumni Reunion</p>
+                    <p class="small">Add your image here</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <h2>Share Your Alumni Photos</h2>
+            <p>Have photos from your school days, batch events, or alumni gatherings? Share them with everyone!</p>
+            <div class="upload-area">
+                <input type="file" id="photo-upload" accept="image/*" multiple>
+                <label for="photo-upload" class="upload-label">
+                    <span>📸 Click to select photos or drag and drop</span>
+                    <p class="small">Supported formats: JPG, PNG, GIF | Max size: 5MB per image</p>
+                </label>
+            </div>
+            <div id="upload-message" class="upload-message" style="display: none;"></div>
+        </section>
+
+        <!-- Gallery Info -->
+        <section class="gallery-info">
+            <h3>📸 Gallery Guidelines</h3>
+            <ul>
+                <li>Share clear, high-quality photos from your batch days</li>
+                <li>Include photos from school events, sports, and fun moments</li>
+                <li>Alumni photos and reunion pictures are welcome</li>
+                <li>Please ensure you have permission to share photos with others in the batch</li>
+                <li>Inappropriate photos may be removed by administrators</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Image Modal for Full View -->
+    <div id="image-modal" class="image-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="Full view" />
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 NSS High School Alumni 1997 Batch. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Report an Issue</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>
