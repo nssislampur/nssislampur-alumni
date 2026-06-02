@@ -3,12 +3,13 @@
     {
       "id": 1,
       "name": "Vidyabhushan Ji",
-      "profession": "Teacher",
+      "profession": "Ministry of Labor",
       "location": "NSS High School",
       "email": "vidyabhushan@example.com",
       "phone": "+91 XXXXX XXXXX",
-      "avatar": "👨‍🏫",
-      "bio": "Educator and Alumni Mentor"
+      "avatar": "👨‍💼",
+      "bio": "Ministry of Labor Official and Alumni Mentor",
+      "position": "Secretary"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "email": "rk@example.com",
       "phone": "+91 XXXXX XXXXX",
       "avatar": "👨",
-      "bio": "Entrepreneur and Batch Coordinator"
+      "bio": "Leader and Batch Coordinator",
+      "position": "Chairman"
     }
   ]
 }
